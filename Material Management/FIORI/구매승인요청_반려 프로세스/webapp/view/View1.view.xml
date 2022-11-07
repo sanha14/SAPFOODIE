@@ -1,0 +1,225 @@
+<mvc:View controllerName="b02.mm.orderapproval.mmorderapproval02.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f">
+     <SplitContainer
+            id="SplitContDemo"
+            initialDetail="intro"
+            initialMaster="master"
+            afterDetailNavigate="onAfterDetailNavigate">
+		<detailPages>
+            <Page id="intro" title="구매 계획 승인 " visible="true">
+			<layout:BlockLayout >
+				<layout:BlockLayoutRow>
+					<layout:BlockLayoutCell>
+						<core:Icon color="#CDCBCB" src="sap-icon://activities" size="10rem" class="sapUiLargeMarginTop sapUiMediumMarginBottom" width="100%"/>
+						<Title level="H1" titleStyle="H5" text="구매 계획 리스트를 클릭해 주세요!" width="100%" textAlign="Center"/>
+					</layout:BlockLayoutCell>
+				</layout:BlockLayoutRow>
+			</layout:BlockLayout>
+		</Page>
+        <Page id="page12" title="{i18n>title}">
+        <content >
+        <Input/>
+        </content >
+    </Page>
+            <f:DynamicPage
+                    id="dynamicPage"
+                    class="sapUiNoContentPadding"
+                    showFooter="true"
+                    toggleHeaderOnTitleClick="false"
+                   >
+                    <f:title>
+					<f:DynamicPageTitle>
+						<f:heading>
+							<Title text="{selectedHdr>/Purcornb}"/>
+						</f:heading>
+					</f:DynamicPageTitle>
+				</f:title>
+                <f:header>
+                    <f:DynamicPageHeader  pinnable="false">
+                        <layout:HorizontalLayout allowWrapping="true">
+                            <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                                <ObjectAttribute title="승인요청일" text="{path : 'selectedHdr>/Orpddt', type:'sap.ui.model.type.Date', formatOptions:{pattern :'yyyy년MM월dd일'}}"/>
+                                <!-- <ObjectAttribute title="계획년월" text="{selectedHdr>/Orpddt}"/> -->
+                            </layout:VerticalLayout>
+
+                            <layout:VerticalLayout>
+                                <ObjectAttribute title="플랜트" text="{selectedHdr>/Plant}"/>
+                                <ObjectAttribute title="요청담당자" text="{selectedHdr>/Resprid}" />
+                            </layout:VerticalLayout>
+                        </layout:HorizontalLayout>
+                        <Wizard id="ApprovalProcess"
+                            class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+                            complete="completedHandler"
+                            enableBranching="false"
+                            showNextButton="false">
+                        <WizardStep
+                            id="ContentsStep1"
+                            title="승인 요청중"
+                            validated="false"
+                            icon="sap-icon://request"
+                            visible="false">
+                        </WizardStep>
+                        <WizardStep
+                            id="ContentsStep2"
+                            title="승인 완료"
+                            validated="false"
+                            icon="sap-icon://complete"
+                            visible="false">
+                        </WizardStep>
+                        <WizardStep
+                            id="ContentsStep3"
+                            title="반려"
+                            validated="false"
+                            icon="sap-icon://employee-rejections"
+                            visible="false">
+                        </WizardStep>
+                    </Wizard>
+
+                         
+                    
+                    </f:DynamicPageHeader>
+                </f:header>
+                <f:content>
+                <VBox class="sapUiTinyMargin">
+                    <Table
+                            id="productsTable"
+                            inset="false"
+                            showSeparators="Inner"
+                            headerText="구매 계획 리스트"
+                            items="{
+                                path: 'mmItemsList>/results'
+                            }">
+                            <columns>
+                                <Column
+                                    width="8em">
+                                    <Text text="자재코드" />
+                                </Column>
+                                <Column
+                                    width="8em">
+                                    <Text text="자재명" />
+                                </Column>
+                                <!-- <Column
+                                    width="7em">
+                                    <Text text="생산계획" />
+                                </Column> -->
+                                <Column
+                                    width="4em">
+                                    <Text text="단위" />
+                                </Column>
+                                <Column
+                                    width="7em">
+                                    <Text text="오더수량" />
+                                </Column>
+                                <Column
+                                    width="4em">
+                                    <Text text="단위" />
+                                </Column>
+                                <Column
+                                    width="8em">
+                                    <Text text="저장위치" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <!-- 자재코드  -->
+                                        <Text text="{mmItemsList>Matrc}" />
+                                        <!-- 자재명  -->
+                                        <Text text="{mmItemsList>Matrnm}" />
+                                        <!-- 생산계획
+                                        <Text text="{mmItemsList>Ppquan}" /> -->
+                                        <!-- 단위-->
+                                        <Text text="{mmItemsList>Uint}" />
+                                        <!-- 구매수량  -->
+                                        <Text text="{mmItemsList>Purcp}" />
+                                        <!-- 단위-->
+                                        <Text text="{mmItemsList>Uint}" />
+                                        <!-- 저장위치  -->
+                                        <Text text="{mmItemsList>Warehscd}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                        </VBox>
+                </f:content>
+                <f:footer>
+					<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button type="Accept" text="승인" press="onAccept"/>
+					<Button type="Reject" text="반려" press="onReject"/>
+				</OverflowToolbar>
+				</f:footer>
+
+                </f:DynamicPage>
+		</detailPages>
+		<masterPages>
+			<Page
+				id="master"
+				backgroundDesign= "List">
+                <customHeader>
+                    <Toolbar>
+                        <Title text="구매 계획 승인" level="H2"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://synchronize" press="onSyncPress" />
+                    </Toolbar>
+            </customHeader>
+                <VBox>
+                    <HBox class="sapUiTinyMarginTop">
+                        <Label text="승인 요청일" 
+                        class="sapUiTinyMarginTop myCustomSpace" />
+                        <DatePicker
+                        id="DP1"
+                        value="{path: 'view>/Orpddt', type: 'sap.ui.model.type.Date', formatOptions: { pattern :'yyyy.MM.dd',strictParsing: true , UTC: true}}"
+                        placeholder=" "
+                        displayFormat="y.MM.dd"
+                        width="220px"/>
+                    </HBox>
+                    <HBox>
+                        <!-- <Label text="계획년월" 
+                        class="sapUiTinyMarginTop myCustomSpace2"/>
+                        <DatePicker
+                            id="DP2"
+                            displayFormat="y.MM"
+                            placeholder=" "
+                            width="100px"/>
+                        <Text text=" -" class="sapUiTinyMarginTop myCustomSpace3"/>
+                        <DatePicker
+                            id="DP3"
+                            displayFormat="y.MM"
+                            placeholder=" "
+                            width="100px"
+                            class="sapUiTinyMarginBegin"/> -->
+                    </HBox>
+                    <HBox alignItems="End">
+                        <Button id="search" text="검색" icon="sap-icon://search" press="onSearch"/>
+                    </HBox>
+                    <Toolbar width="100%" height="1px"/>
+                </VBox>
+				<List id="listId" mode="None" 
+                items="{path: 'mmHdrlist>/results',  sorter: { path: 'mmHdrlist>Orpddt', descending: true}}">
+                    <CustomListItem highlight="{=${mmHdrlist>Statflag} === '11' ? 'Warning' : ${mmHdrlist>Statflag} === '12' ? 'Success' : 'Error' }" type='Navigation' press="onListClick">
+                        <HBox>
+                            <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+                                <Label text="{mmHdrlist>Purcornb}" design="Bold"/>
+                                <HBox>
+                                <!-- 아직 승인 요청일이 null 이기 때문에 출력 불가 -->
+                                    <Text text="승인 요청일" class="sapUiMediumMarginEnd"/>
+                                    <Text text="{path : 'mmHdrlist>Orpddt', type:'sap.ui.model.type.Date', formatOptions:{pattern :'yyyy년MM월dd일'} }" />
+                                </HBox>
+                               
+                                <!-- <HBox>
+                                    <Text text="계획년월"  class="sapUiLargeMarginEnd"/>
+                                   
+                                </HBox> -->
+                            </VBox>
+                        </HBox>
+                    </CustomListItem>
+                </List>
+			</Page>
+		</masterPages>
+	</SplitContainer>
+</mvc:View>

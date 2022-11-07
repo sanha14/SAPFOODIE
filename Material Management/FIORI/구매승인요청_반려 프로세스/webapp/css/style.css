@@ -1,0 +1,34 @@
+.myCustomSpace {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem
+ }
+ .myCustomSpace2 {
+    margin-left: 0.5rem;
+    margin-right: 1.5rem
+ }
+
+ .myCustomSpace3 {
+   margin-left: 0.5rem
+}
+
+ .sapFDynamicPageTitleMain>.sapFDynamicPageTitleMainInner .sapFDynamicPageTitleMainHeading .sapFDynamicPageTitleMainHeadingInner .sapMTitle {
+    margin-top: 1.5rem;
+    font-size: x-large;
+ }
+ 
+ .sapMWizard .sapMWizardStepContainer {
+    margin-top: 1rem;
+ }
+ 
+ .sapMWizard .sapMWizardProgressNav {
+    margin-left: -1.5rem;
+ }
+
+ 
+.sapUiBlockLayoutSizeM:not(.sapUiBlockLayoutKeepFontSize) .sapUiBlockCellContent {
+    padding: 7rem 2rem;
+}
+
+.sapMFlexBox.sapMFlexBoxAlignContentStretch.sapMFlexBoxAlignItemsEnd {
+    padding: 0 0 0 15.1rem
+}
