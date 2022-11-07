@@ -1,0 +1,16 @@
+/* Enter your custom styles here */
+.myText {
+    
+    font-size: 1.4rem;
+    color: #3d6add;
+    font-weight: bold;
+    /* font-family: 'Open Sans', sans-serif !important; */
+   }
+
+ 
+.myText2 {
+    
+    font-size: 1.4rem;
+    color: #ff0000;
+    font-weight: bold;
+}

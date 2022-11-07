@@ -1,0 +1,6 @@
+<mvc:View controllerName="b02.mm.inquiry.mminquiry.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:table="sap.ui.table"
+    xmlns="sap.m">
+  <App id="app"/>
+</mvc:View>

@@ -1,0 +1,149 @@
+<mvc:View controllerName="b02.mm.inquiry.mminquiry.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:m="sap.m"
+   	xmlns="sap.suite.ui.microchart"
+	xmlns:layout="sap.ui.layout">
+
+        
+        <m:Page text ="거래처별 불량률 조회" class = "myText">
+		 <m:content>
+        <m:HBox class="sapUiSmallMarginTop" height="10rem">
+       
+    	<m:Text text="청담" class="myText sapUiSmallMargin" width ='7rem'>
+        
+        <!-- <Button text ='버튼' press = 'onPress'/> -->
+		<m:layoutData>
+			<layout:GridData span="XL12 L12 M12 S12"/>
+		</m:layoutData>
+	</m:Text>
+	<m:FlexBox width="25rem" height="18rem"  alignItems="Start" justifyContent="SpaceBetween">
+		<m:items>
+			<InteractiveDonutChart selectionChanged="onSelectionChanged" >
+				<segments>
+					<InteractiveDonutChartSegment label="입고율" value= "{view>/Graph/0/Perc2}" displayedValue="{view>/Graph/0/Perc2}%" color="Good"/>
+					<InteractiveDonutChartSegment label="불량률" value= "{view>/Graph/0/Perc}"  displayedValue="{view>/Graph/0/Perc}%" color="Error"/>
+					<!-- <InteractiveDonutChartSegment label="불량률"   value="0" displayedValue="{view>/Graph/0/Perc}%" color="Good"/> -->
+				</segments>
+			</InteractiveDonutChart>
+		</m:items>
+	</m:FlexBox>    
+
+	<m:Text text="노량수산" class="myText sapUiSmallMargin" width ='7rem'>
+		<m:layoutData>
+			<layout:GridData span="XL12 L12 M12 S12"/>
+		</m:layoutData>
+	</m:Text>
+	<m:FlexBox width="25rem" height="18rem" alignItems="Start" justifyContent="SpaceBetween">
+		<m:items>
+			<InteractiveDonutChart selectionChanged="onSelectionChanged" displayedSegments="4" press="press">
+				<segments>
+					<InteractiveDonutChartSegment label="입고율" value= "{view>/Graph/1/Perc2}" displayedValue="{view>/Graph/1/Perc2}%" color="Good"/>
+					<InteractiveDonutChartSegment label="불량률" value= "{view>/Graph/1/Perc}"  displayedValue="{view>/Graph/1/Perc}%" color="Error"/>
+					<!-- <InteractiveDonutChartSegment label="불량률"   value="0" displayedValue="{view>/Graph/0/Perc}%" color="Good"/> -->
+				</segments>
+			</InteractiveDonutChart>
+		</m:items>
+	</m:FlexBox>
+    </m:HBox>
+    
+        <m:HBox height="10rem">        
+    	<m:Text text="북양유업" class="myText sapUiSmallMargin" width ='7rem'>
+		
+        <!-- <Button text ='버튼' press = 'onPress'/> -->
+		<m:layoutData>
+			<layout:GridData span="XL12 L12 M12 S12"/>
+		</m:layoutData>
+	</m:Text>
+	<m:FlexBox width="25rem" height="18rem"  alignItems="Start" justifyContent="SpaceBetween">
+		<m:items>
+			<InteractiveDonutChart selectionChanged="onSelectionChanged">
+				<segments>
+					<InteractiveDonutChartSegment label="입고율" value= "{view>/Graph/2/Perc2}" displayedValue="{view>/Graph/2/Perc2}%" color="Good"/>
+					<InteractiveDonutChartSegment label="불량률" value= "{view>/Graph/2/Perc}"  displayedValue="{view>/Graph/2/Perc}%" color="Error"/>
+					<!-- <InteractiveDonutChartSegment label="불량률"   value="0" displayedValue="{view>/Graph/0/Perc}%" color="Good"/> -->
+				</segments>
+			</InteractiveDonutChart>
+		</m:items>
+	</m:FlexBox>
+   
+	<m:Text text="풍년상회" class="myText sapUiSmallMargin" width ='7rem'>
+		<m:layoutData>
+			<layout:GridData span="XL12 L12 M12 S12"/>
+		</m:layoutData>
+	</m:Text>
+	<m:FlexBox width="25rem" height="18rem"  alignItems="Start" justifyContent="SpaceBetween">
+		<m:items>
+			<InteractiveDonutChart selectionChanged="onSelectionChanged" displayedSegments="4" press="press">
+				<segments>
+					<InteractiveDonutChartSegment label="입고율" value= "{view>/Graph/3/Perc2}" displayedValue="{view>/Graph/3/Perc2}%" color="Good"/>
+					<InteractiveDonutChartSegment label="불량률" value= "{view>/Graph/3/Perc}"  displayedValue="{view>/Graph/3/Perc}%" color="Error"/>
+					<!-- <InteractiveDonutChartSegment label="불량률"   value="0" displayedValue="{view>/Graph/0/Perc}%" color="Good"/> -->
+				</segments>
+			</InteractiveDonutChart>
+		</m:items>
+	</m:FlexBox>
+   </m:HBox>
+
+    <m:HBox height="10rem">
+    	<m:Text text="넙뚜기" class="myText sapUiSmallMargin" width ='7rem'>
+        <!-- <Button text ='버튼' press = 'onPress'/> -->
+		<m:layoutData>
+			<layout:GridData span="XL12 L12 M12 S12"/>
+		</m:layoutData>
+	</m:Text>
+	<m:FlexBox width="25rem" height="18rem"  alignItems="Start" justifyContent="SpaceBetween" >
+		<m:items>
+			<InteractiveDonutChart selectionChanged="onSelectionChanged">
+				<segments>
+					<InteractiveDonutChartSegment label="입고율" value= "{view>/Graph/3/Perc2}" displayedValue="{view>/Graph/3/Perc2}%" color="Good"/>
+					<InteractiveDonutChartSegment label="불량률" value= "{view>/Graph/3/Perc}"  displayedValue="{view>/Graph/3/Perc}%" color="Error"/>
+					<!-- <InteractiveDonutChartSegment label="불량률"   value="0" displayedValue="{view>/Graph/0/Perc}%" color="Good"/> -->
+				</segments>
+			</InteractiveDonutChart>
+		</m:items>
+	</m:FlexBox>
+
+    <m:Text text="G&amp;N" class="myText sapUiSmallMargin" width ='7rem'>
+		<m:layoutData>
+			<layout:GridData span="XL12 L12 M12 S12"/>
+		</m:layoutData>
+	</m:Text>
+	<m:FlexBox width="25rem" height="18rem"  alignItems="Start" justifyContent="SpaceBetween">
+		<m:items>
+			<InteractiveDonutChart selectionChanged="onSelectionChanged" displayedSegments="4" press="press">
+				<segments>
+					<InteractiveDonutChartSegment label="입고율" value= "{view>/Graph/4/Perc2}" displayedValue="{view>/Graph/4/Perc2}%" color="Good"/>
+					<InteractiveDonutChartSegment label="불량률" value= "{view>/Graph/4/Perc}"  displayedValue="{view>/Graph/4/Perc}%" color="Error"/>
+					<!-- <InteractiveDonutChartSegment label="불량률"   value="0" displayedValue="{view>/Graph/0/Perc}%" color="Good"/> -->
+				</segments>
+			</InteractiveDonutChart>
+		</m:items>
+	</m:FlexBox>
+  </m:HBox>
+
+  <m:HBox height="10rem">
+    	<m:Text text="유성정육" class="myText sapUiSmallMargin" width ='7rem' >
+        <!-- <Button text ='버튼' press = 'onPress'/> -->
+		<m:layoutData>
+			<layout:GridData span="XL12 L12 M12 S12"/>
+		</m:layoutData>
+	</m:Text>
+	<m:FlexBox width="25rem" height="18rem"  alignItems="Start" justifyContent="SpaceBetween">
+		<m:items>
+			<InteractiveDonutChart selectionChanged="onSelectionChanged">
+				<segments>
+					<InteractiveDonutChartSegment label="입고율" value= "{view>/Graph/5/Perc2}" displayedValue="{view>/Graph/5/Perc2}%" color="Good"/>
+					<InteractiveDonutChartSegment label="불량률" value= "{view>/Graph/5/Perc}"  displayedValue="{view>/Graph/5/Perc}%"  color="Error"/>
+					<!-- <InteractiveDonutChartSegment label="불량률"   value="0" displayedValue="{view>/Graph/0/Perc}%" color="Good"/> -->
+				</segments>
+			</InteractiveDonutChart>
+		</m:items>
+	</m:FlexBox>
+  </m:HBox>
+  
+  </m:content>
+</m:Page>
+    
+
+</mvc:View>
+

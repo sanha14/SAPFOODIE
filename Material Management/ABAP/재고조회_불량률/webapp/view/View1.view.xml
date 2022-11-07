@@ -1,0 +1,152 @@
+<mvc:View controllerName="b02.mm.inquiry.mminquiry.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:layout="sap.ui.layout"
+    xmlns:l="sap.ui.layout.form"
+    xmlns:t="sap.ui.table"
+    xmlns:u="sap.ui.unified"   
+    xmlns:core = "sap.ui.core"
+    xmlns:m="sap.suite.ui.microchart"
+    height="100%">
+    
+		<f:DynamicPage id="dynamicPageId" >
+			<!-- DynamicPage Title -->
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title text="[SAPFOODIE 재고 조회] "/>
+					</f:heading>
+					
+					
+					<f:navigationActions>
+					<HBox>
+                     <Button text = '거래처별 불량률 조회' type = 'Reject' icon="sap-icon://message-success"  press = 'onPress'/>                    
+                    </HBox>
+					</f:navigationActions>
+				</f:DynamicPageTitle>
+			</f:title>
+			<!-- DynamicPage Header -->
+			<f:header>
+            
+				<f:DynamicPageHeader pinnable="true">
+                        
+                      	<layout:HorizontalLayout allowWrapping="true">
+						<layout:VerticalLayout class="sapUiMediumMarginEnd">
+                            <Text text = "거래처코드 : "/>
+                            <Text text = " "/>
+                            <Text text = "자재명 :"/>
+						</layout:VerticalLayout>
+
+						<layout:VerticalLayout>
+						<Input id="searchInput1" width="20rem" value = "{view>/searchValue1}" editable="{view>/btnEnabled}" />
+						<Input id="searchInput2" width="20rem" value = "{view>/searchValue2}" editable="{view>/btnEnabled}"/>
+							
+                    	</layout:VerticalLayout>   
+						</layout:HorizontalLayout>
+						<VBox alignItems = "End">
+							<Button text="검색"  icon="sap-icon://search" press="onTotalSearch"/>
+						</VBox>
+				</f:DynamicPageHeader>
+				</f:header>
+				<f:content>
+			    <t:Table
+						id = "mainTable"
+						rows = "{view>/MaterialData}"
+						>
+					<t:extension>
+						<OverflowToolbar style="Clear">
+							<Title text="재고테이블"/>
+						</OverflowToolbar>
+					</t:extension>
+					
+					<t:columns>
+					    <t:Column width="5rem">
+							<Text text="자재코드" />
+							<t:template>
+								<Text text="{view>Matrc}" wrapping="false" />
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem">
+							<Text text="자재명" />
+							<t:template>
+								<Text text="{view>Matrnm}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column width="5rem">
+							<Text text="재고량" />
+							<t:template>
+								<Text text="{view>Stckqc}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                           <t:Column width="5rem">
+							<Text text="안전재고" />
+							<t:template>
+								<Text text="{view>Saveqc}" wrapping="false" />
+							</t:template>
+						</t:Column>
+						<t:Column width="5rem" >
+							<Text text="기준단위" />
+							<t:template>
+								<Text text="{view>Unit}" wrapping="false" />
+							</t:template>
+						</t:Column>
+						<t:Column width="5rem" >
+							<Text text="자재타입" />
+							<t:template>
+								<Text text="{view>Matrtype}" wrapping="false" />
+							</t:template>
+						</t:Column>
+						<t:Column width="5rem" >
+							<Text text="원산지" />
+							<t:template>
+								<Text text="{view>Origin}" wrapping="false" />
+							</t:template>
+						</t:Column>
+              			 <t:Column width="7rem" >
+							<Text text="거래처코드" />
+							<t:template>
+								<Text text="{view>Vendorc}" wrapping="false" />
+							</t:template>
+						</t:Column>
+              			 <t:Column width="5rem">
+							<Text text="창고코드" />
+							<t:template>
+								<Text text="{view>Warehscd}" wrapping="false" />
+							</t:template>
+						</t:Column>
+              			 <t:Column width="6rem">
+							<Text text="발주" />
+							<t:template>
+								<Button text="발주요청" press="onPress2"/>
+							</t:template>
+						</t:Column>
+						 <t:Column width="14rem">
+							<Text text="재고상태" />
+							<t:template>
+									<!-- <m:BulletMicroChart targetValue="{view>Stckq}" minValue="{view>Minvalue}" maxValue="{view>Maxvlaue}" -->
+
+									<!-- <m:BulletMicroChart targetValue="{path: 'view>Stckq', type: 'sap.ui.model.type.float'}"
+									  size="Responsive" height="30px"> -->
+									 
+									  <!-- <m:BulletMicroChart tooltip="Actual: {/view>Stckq} targetValue="{view>Saveq}" minValue="{view>Minvalue}" maxValue="{view>Maxvlaue}" 
+									  
+									  size="L" height="40px" showActualValue ="true"> -->
+										<m:BulletMicroChart tooltip="Actual: {view>Stckq}" minValue="{view>Minvalue}" targetValue="{view>Saveq}"  maxValue="{view>Maxvlaue}" 
+										  >
+									  		
+												<m:actual>
+													<m:BulletMicroChartData value="{view>Stckq}" color="{= ${view>Stckq} >= ${view>Saveq} ? 'Good' : 'Error' }"/> 
+												</m:actual>
+												<m:thresholds>
+													<m:BulletMicroChartData value="{view>Stckq}" color="Error"/>
+												</m:thresholds>
+									</m:BulletMicroChart>
+							</t:template>
+						</t:Column>
+        	       </t:columns>
+				</t:Table>
+			</f:content>
+		</f:DynamicPage>
+</mvc:View>
+
