@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>ZC2SDR2003</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZC2SDR2003</h2>
+<h3> Description: [SAPFOODIE] 차트 정산프로그램</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Module&nbsp;Pool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZC2SDR2003<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+<br />
+   </div>
+   <div class="code">
+include <a href ="zc2sdr2003_top.html">ZC2SDR2003_TOP</a>.    " Global Data<br />
+<br />
+&nbsp;include&nbsp;<a&nbsp;href&nbsp;="zc2sdr2003_o01.html">ZC2SDR2003_O01</a>.&nbsp;&nbsp;"&nbsp;PBO-Modules<br />
+&nbsp;include&nbsp;<a&nbsp;href&nbsp;="zc2sdr2003_i01.html">ZC2SDR2003_I01</a>.&nbsp;&nbsp;"&nbsp;PAI-Modules<br />
+&nbsp;include&nbsp;<a&nbsp;href&nbsp;="zc2sdr2003_f01.html">ZC2SDR2003_F01</a>.&nbsp;&nbsp;"&nbsp;FORM-Routines<br />
+<br />
+&nbsp;START-OF-SELECTION.<br />
+&nbsp;&nbsp;DATA:&nbsp;lv_answer&nbsp;TYPE&nbsp;c.<br />
+&nbsp;&nbsp;CALL&nbsp;FUNCTION&nbsp;'POPUP_TO_CONFIRM'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;titlebar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'차트&nbsp;연산'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text_question&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'차트&nbsp;연산을&nbsp;확정하시겠습니까?'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text_button_1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'YES'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;icon_button_1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'ICON_SYSTEM_OKAY'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text_button_2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'NO'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;icon_button_2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;'ICON_SYSTEM_CANCEL'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display_cancel_button&nbsp;=&nbsp;''<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IMPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;lv_answer<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXCEPTIONS<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text_not_found&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OTHERS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;2.<br />
+<br />
+&nbsp;&nbsp;IF&nbsp;lv_answer&nbsp;=&nbsp;1.<br />
+&nbsp;perform&nbsp;cal_data1.<br />
+&nbsp;PERFORM&nbsp;cal_data2.<br />
+&nbsp;PERFORM&nbsp;CAL_DATA3.<br />
+&nbsp;ENDIF.<br />
+   </div>
+   <div class="codeComment">
+*DELETE&nbsp;FROM&nbsp;ZTC2SD2010.<br />
+*DELETE&nbsp;FROM&nbsp;ZTC2SD2011.<br />
+*DELETE&nbsp;FROM&nbsp;ZTC2SD2012.<br />
+*&nbsp;LV_INDEX&nbsp;VALUE&nbsp;1.<br />
+<br />
+*&nbsp;&nbsp;FIELD-SYMBOLS:&nbsp;&lt;ZZZZZ&gt;&nbsp;TYPE&nbsp;I.<br />
+*&nbsp;&nbsp;DATA:&nbsp;BEGIN&nbsp;OF&nbsp;STRUCA,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;LV_high&nbsp;type&nbsp;i&nbsp;VALUE&nbsp;20,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;lv_low&nbsp;&nbsp;type&nbsp;i&nbsp;value&nbsp;30,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;END&nbsp;OF&nbsp;STRUCA.<br />
+*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;ASSIGN&nbsp;COMPONENT&nbsp;1&nbsp;OF&nbsp;STRUCTURE&nbsp;STRUCA&nbsp;TO&nbsp;&lt;ZZZZZ&gt;.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;DATA(DISPLAY_OUT)&nbsp;=&nbsp;&lt;ZZZZZ&gt;.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;WRITE:&nbsp;DISPLAY_OUT.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2022. Sap Release 754</td>
+   </tr>
+</table>
+</body>
+</html>

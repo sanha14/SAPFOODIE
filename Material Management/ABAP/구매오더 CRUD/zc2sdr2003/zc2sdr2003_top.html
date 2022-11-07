@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>ZC2SDR2003_TOP</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZC2SDR2003_TOP</h2>
+<h3> Description: Include ZC2SDR2003_TOP</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Include&nbsp;ZC2SDR2003_TOP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Module&nbsp;Pool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZC2SDR2003<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT zc2sdr2003.<br />
+<br />
+DATA: gs_data1 TYPE ztc2sd2006,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_data1&nbsp;LIKE&nbsp;TABLE&nbsp;OF&nbsp;gs_data1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1&nbsp;TYPE&nbsp;ztc2sd2010,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_datadisp1&nbsp;LIKE&nbsp;TABLE&nbsp;OF&nbsp;gs_datadisp1&nbsp;WITH&nbsp;NON-UNIQUE&nbsp;KEY&nbsp;entpr&nbsp;fdate.<br />
+<br />
+DATA: BEGIN OF gs_data2,<br />
+&nbsp;&nbsp;plant&nbsp;TYPE&nbsp;ztc2sd2006-plant,<br />
+&nbsp;&nbsp;cmpnc&nbsp;TYPE&nbsp;ztc2sd2006-cmpnc,<br />
+&nbsp;&nbsp;vendorc&nbsp;TYPE&nbsp;ztc2sd2006-vendorc,<br />
+&nbsp;&nbsp;saleym&nbsp;TYPE&nbsp;ztc2sd2006-saleym,<br />
+&nbsp;&nbsp;ordercd&nbsp;TYPE&nbsp;ztc2sd2006-ordercd,<br />
+&nbsp;&nbsp;proDcd&nbsp;&nbsp;TYPE&nbsp;ztc2sd2007-prodcd,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END&nbsp;OF&nbsp;GS_dATA2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GT_dATA2&nbsp;LIKE&nbsp;TABLE&nbsp;OF&nbsp;gs_data2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2&nbsp;TYPE&nbsp;ztc2sd2011,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GT_dATADISP2&nbsp;LIKE&nbsp;TABLE&nbsp;OF&nbsp;gs_datadisp2&nbsp;WITH&nbsp;NON-UNIQUE&nbsp;KEY&nbsp;entpr&nbsp;fdate&nbsp;proDcd.<br />
+<br />
+<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;gs_dataplan&nbsp;type&nbsp;ztc2sd2012,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_dataplan&nbsp;like&nbsp;table&nbsp;of&nbsp;gs_dataplan&nbsp;WITH&nbsp;NON-UNIQUE&nbsp;key&nbsp;proDcd&nbsp;fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATA:&nbsp;GV_SAMOUNT&nbsp;TYPE&nbsp;I,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GV_PAMOUNT&nbsp;TYPE&nbsp;I,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_updown1&nbsp;type&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_updown2&nbsp;type&nbsp;i.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;gs_data3&nbsp;type&nbsp;ztc2sd2013,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_data3&nbsp;like&nbsp;table&nbsp;of&nbsp;gs_data3.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;gv_last&nbsp;type&nbsp;i.<br />
+   </div>
+   <div class="codeComment">
+*data:&nbsp;BEGIN&nbsp;OF&nbsp;gs_resultdata,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plnym&nbsp;TYPE&nbsp;ztc2sd2001-plnym,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prodcd&nbsp;TYPE&nbsp;ztc2sd2002-prodcd,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sdplqty&nbsp;TYPE&nbsp;ztc2sd2002-sdplqty,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fixedqty&nbsp;TYPE&nbsp;ztc2sd2007-fixedqty,<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2022. Sap Release 754</td>
+   </tr>
+</table>
+</body>
+</html>

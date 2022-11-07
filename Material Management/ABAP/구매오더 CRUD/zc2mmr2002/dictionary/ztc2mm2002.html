@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>Dictionary object- ZTC2MM2002</title>
+<style type="text/css">
+  th{text-align:left}
+  .cell{
+     font-family:"Courier New", Courier, monospace;
+     color:#000;
+     font-size:12px;
+     background-color:#F2F4F7;
+  }
+  .cell td { border: thin solid #ccc; }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+  <table class="outerTable">
+    <tr>
+      <td><h2>Table: ZTC2MM2002</h2>
+  <h3>Description: [MM] 구매계획 테이블 (헤더)</h3></td>
+    </tr>
+    <tr>
+      <td><!--This is where our main table begins  -->
+<table class="innerTable">
+<tr>
+  <th>Row</th>
+  <th>Field name</th>
+  <th>Position</th>
+  <th>Key</th>
+  <th>Data element</th>
+  <th>Domain</th>
+  <th>Datatype</th>
+  <th>Length</th>
+  <th>Lowercase</th>
+  <th>Domain text</th>
+</tr>
+<tr class="cell">
+  <td> 1</td>
+  <td>MANDT</td>
+  <td>1</td>
+  <td>X</td>
+  <td>MANDT</td>
+  <td>MANDT</td>
+  <td>CLNT</td>
+  <td>3</td>
+  <td>&nbsp;</td>
+  <td>Client</td>
+</tr>
+<tr class="cell">
+  <td> 2</td>
+  <td>CMPNC</td>
+  <td>2</td>
+  <td>X</td>
+  <td>ZEC2MD_CMPNC</td>
+  <td>ZDC2MD_CMPNC</td>
+  <td>CHAR</td>
+  <td>4</td>
+  <td>&nbsp;</td>
+  <td>[MD] 회사코드 Data Element</td>
+</tr>
+<tr class="cell">
+  <td> 3</td>
+  <td>PLANT</td>
+  <td>3</td>
+  <td>X</td>
+  <td>ZEC2MD_PLANT</td>
+  <td>ZDC2MD_PLANT</td>
+  <td>CHAR</td>
+  <td>4</td>
+  <td>&nbsp;</td>
+  <td>[MD] PlantID Data Element</td>
+</tr>
+<tr class="cell">
+  <td> 4</td>
+  <td>PURCPLNB</td>
+  <td>4</td>
+  <td>X</td>
+  <td>ZEC2MM_PURCPLNB</td>
+  <td>ZDC2MM_PURCPLNB</td>
+  <td>CHAR</td>
+  <td>20</td>
+  <td>&nbsp;</td>
+  <td>[MM] 구매계획번호 Data Element</td>
+</tr>
+<tr class="cell">
+  <td> 5</td>
+  <td>PLYM</td>
+  <td>5</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_PLYM</td>
+  <td>MCPERIOD</td>
+  <td>NUMC</td>
+  <td>6</td>
+  <td>&nbsp;</td>
+  <td>[MM] 계획년월 Data Element</td>
+</tr>
+<tr class="cell">
+  <td> 6</td>
+  <td>PLPDDT</td>
+  <td>6</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_PLPDDT</td>
+  <td>ZDC2MM_PLPDDT</td>
+  <td>DATS</td>
+  <td>8</td>
+  <td>&nbsp;</td>
+  <td>[MM] 계획생성일 Data Element</td>
+</tr>
+<tr class="cell">
+  <td> 7</td>
+  <td>PLMFDT</td>
+  <td>7</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_PLMFDT</td>
+  <td>ZDC2MM_PLMFDT</td>
+  <td>DATS</td>
+  <td>8</td>
+  <td>&nbsp;</td>
+  <td>[MM] 계획수정일 Data Element</td>
+</tr>
+<tr class="cell">
+  <td> 8</td>
+  <td>PLCFDT</td>
+  <td>8</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_PLCFDT</td>
+  <td>ZDC2MM_PLCFDT</td>
+  <td>DATS</td>
+  <td>8</td>
+  <td>&nbsp;</td>
+  <td>[MM] 계획확정일 Data Element</td>
+</tr>
+<tr class="cell">
+  <td> 9</td>
+  <td>PURCTP</td>
+  <td>9</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_PURCTP</td>
+  <td>ZDC2MM_PURCTP</td>
+  <td>CURR</td>
+  <td>10</td>
+  <td>&nbsp;</td>
+  <td>[MM] 구매총액 Data Element</td>
+</tr>
+<tr class="cell">
+  <td>10</td>
+  <td>UNIT</td>
+  <td>10</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_UNIT</td>
+  <td>MEINS</td>
+  <td>UNIT</td>
+  <td>3</td>
+  <td>X</td>
+  <td>[MM] 단위 Data Element</td>
+</tr>
+<tr class="cell">
+  <td>11</td>
+  <td>CURRENCY</td>
+  <td>11</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_CURRENCY</td>
+  <td>WAERS</td>
+  <td>CUKY</td>
+  <td>5</td>
+  <td>&nbsp;</td>
+  <td>[MM] 화폐단위 Data Element</td>
+</tr>
+<tr class="cell">
+  <td>12</td>
+  <td>RETNR</td>
+  <td>12</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_RETNR</td>
+  <td>ZDC2MM_RETNR</td>
+  <td>CHAR</td>
+  <td>50</td>
+  <td>&nbsp;</td>
+  <td>[MM] 반려사유 Data element</td>
+</tr>
+<tr class="cell">
+  <td>13</td>
+  <td>RESPRID</td>
+  <td>13</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_RESPRID</td>
+  <td>ZDC2MD_EMPLYID</td>
+  <td>CHAR</td>
+  <td>8</td>
+  <td>&nbsp;</td>
+  <td>[MM] 담당자ID Data Element</td>
+</tr>
+<tr class="cell">
+  <td>14</td>
+  <td>MODFID</td>
+  <td>14</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_MODFID</td>
+  <td>ZDC2MD_EMPLYID</td>
+  <td>CHAR</td>
+  <td>8</td>
+  <td>&nbsp;</td>
+  <td>[MM] 수정자ID Data Element</td>
+</tr>
+<tr class="cell">
+  <td>15</td>
+  <td>STATFLAG</td>
+  <td>15</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_STATFLAG</td>
+  <td>ZDC2MM_STATFLAG</td>
+  <td>CHAR</td>
+  <td>2</td>
+  <td>&nbsp;</td>
+  <td>[MM] 상태플래그 Data Element</td>
+</tr>
+<tr class="cell">
+  <td>16</td>
+  <td>DELFLAG</td>
+  <td>16</td>
+  <td>&nbsp;</td>
+  <td>ZEC2MM_DELFLAG</td>
+  <td>ZDC2MM_DELFLAG</td>
+  <td>CHAR</td>
+  <td>2</td>
+  <td>&nbsp;</td>
+  <td>[MM] 삭제플래그 Data Element</td>
+</tr>
+      </table>
+     </td>
+   </tr>
+<br/>
+  <table class="outerTable">
+    <tr>
+      <td><h2>Fixed Domain Values </h2>
+    </tr>
+    <tr>
+      <td><!--This is where our main table begins  -->
+<table class="innerTable">
+<tr>
+  <th>Domain Name</th>
+  <th>Value Low</th>
+  <th>Value High</th>
+  <th>Text</th>
+</tr>
+<tr class="cell">
+  <td>ZDC2MM_STATFLAG</td>
+  <td>13</td>
+  <td>&nbsp;</td>
+  <td>입고대기</td>
+</tr>
+<tr class="cell">
+  <td>ZDC2MM_STATFLAG</td>
+  <td>14</td>
+  <td>&nbsp;</td>
+  <td>입고완료</td>
+</tr>
+<tr class="cell">
+  <td>ZDC2MM_STATFLAG</td>
+  <td>15</td>
+  <td>&nbsp;</td>
+  <td>입고지연</td>
+</tr>
+<tr class="cell">
+  <td>ZDC2MM_STATFLAG</td>
+  <td>12</td>
+  <td>&nbsp;</td>
+  <td>승인완료</td>
+</tr>
+<tr class="cell">
+  <td>ZDC2MM_STATFLAG</td>
+  <td>11</td>
+  <td>&nbsp;</td>
+  <td>승인요청</td>
+</tr>
+<tr class="cell">
+  <td>ZDC2MM_STATFLAG</td>
+  <td>10</td>
+  <td>&nbsp;</td>
+  <td>승인대기</td>
+</tr>
+<tr class="cell">
+  <td>ZDC2MM_STATFLAG</td>
+  <td>16</td>
+  <td>&nbsp;</td>
+  <td>승인반려</td>
+</tr>
+<tr class="cell">
+  <td>ZDC2MM_STATFLAG</td>
+  <td>17</td>
+  <td>&nbsp;</td>
+  <td>매입확정</td>
+</tr>
+<tr class="cell">
+  <td>ZDC2MM_STATFLAG</td>
+  <td>18</td>
+  <td>&nbsp;</td>
+  <td>전표생성</td>
+</tr>
+      </table>
+     </td>
+   </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2022. Sap Release 754</td>
+   </tr>
+</table>
+</body>
+</html>

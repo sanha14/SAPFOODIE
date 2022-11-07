@@ -1,0 +1,750 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>ZC2SDR2003_F01</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: ZC2SDR2003_F01</h2>
+<h3> Description: Include ZC2SDR2003_F01</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Include&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZC2SDR2003_F01<br />
+*&---------------------------------------------------------------------*<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;cal_data1<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM cal_data1.<br />
+&nbsp;&nbsp;DATA&nbsp;lv_check&nbsp;TYPE&nbsp;c&nbsp;LENGTH&nbsp;30.<br />
+&nbsp;&nbsp;DATA:&nbsp;lv_cout1&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout2&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout3&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout4&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout5&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout6&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout7&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout8&nbsp;TYPE&nbsp;i.<br />
+&nbsp;&nbsp;DATA:&nbsp;lv_2cout1&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_2cout2&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_2cout3&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_2cout4&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_2cout5&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_2cout6&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_2cout7&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_2cout8&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_2cout9&nbsp;TYPE&nbsp;i.<br />
+&nbsp;&nbsp;DATA:&nbsp;&nbsp;LV_dATE&nbsp;TYPE&nbsp;d.<br />
+&nbsp;&nbsp;DATA:&nbsp;lv_cout9&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_vend&nbsp;&nbsp;TYPE&nbsp;i.<br />
+&nbsp;&nbsp;DATA:&nbsp;ls_datadisp1&nbsp;LIKE&nbsp;gs_datadisp1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt_datadisp1&nbsp;LIKE&nbsp;TABLE&nbsp;OF&nbsp;ls_datadisp1.<br />
+&nbsp;&nbsp;DATA:&nbsp;lv_amount&nbsp;TYPE&nbsp;i,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_change&nbsp;TYPE&nbsp;i.<br />
+   </div>
+   <div class="codeComment">
+*data&nbsp;lv_cnt&nbsp;type&nbsp;i.<br />
+*data&nbsp;lv_amount&nbsp;type&nbsp;i.<br />
+*<br />
+*data:&nbsp;ls_data&nbsp;like&nbsp;GS_DATA2,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt_Data&nbsp;like&nbsp;TABLE&nbsp;OF&nbsp;GS_DATA2.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;DATA:&nbsp;lv_toint&nbsp;TYPE&nbsp;i.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*select&nbsp;*<br />
+*&nbsp;&nbsp;from&nbsp;ztc2sd2006<br />
+*&nbsp;&nbsp;into&nbsp;CORRESPONDING&nbsp;FIELDS&nbsp;OF&nbsp;table&nbsp;GT_DATA2.<br />
+<br />
+<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;SELECT&nbsp;*<br />
+&nbsp;&nbsp;FROM&nbsp;ztc2sd2006&nbsp;AS&nbsp;a<br />
+&nbsp;&nbsp;INNER&nbsp;JOIN&nbsp;ztc2sd2007&nbsp;AS&nbsp;b<br />
+&nbsp;&nbsp;ON&nbsp;a~vendorc&nbsp;=&nbsp;b~vendorc<br />
+&nbsp;AND&nbsp;a~saleym&nbsp;=&nbsp;b~saleym<br />
+&nbsp;AND&nbsp;a~ordercd&nbsp;=&nbsp;b~ordercd<br />
+&nbsp;&nbsp;INTO&nbsp;CORRESPONDING&nbsp;FIELDS&nbsp;OF&nbsp;TABLE&nbsp;gt_data2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ORDER&nbsp;BY&nbsp;a~saleym&nbsp;a~ordercd&nbsp;b~proDcd.<br />
+<br />
+<br />
+&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_data2&nbsp;INTO&nbsp;gs_data2&nbsp;INDEX&nbsp;1.<br />
+<br />
+&nbsp;&nbsp;lv_Check&nbsp;=&nbsp;gs_data2-saleym.<br />
+<br />
+&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_data2&nbsp;INTO&nbsp;gs_data2.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;gs_data2-saleym&nbsp;&lt;&gt;&nbsp;lv_check.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SORT&nbsp;gt_datadisp1&nbsp;BY&nbsp;entpr&nbsp;fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DELETE&nbsp;ADJACENT&nbsp;DUPLICATES&nbsp;FROM&nbsp;gt_datadisp1&nbsp;COMPARING&nbsp;entpr&nbsp;fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout9&nbsp;=&nbsp;lv_cout1&nbsp;+&nbsp;lv_cout2&nbsp;+&nbsp;lv_cout3&nbsp;+&nbsp;lv_cout4&nbsp;+&nbsp;lv_cout5&nbsp;+&nbsp;lv_cout6&nbsp;+&nbsp;lv_cout7&nbsp;+&nbsp;lv_cout8.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do&nbsp;8&nbsp;times.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout&nbsp;+=&nbsp;1.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;concatenate&nbsp;'lv_cout'&nbsp;lv_cout&nbsp;into<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enddo.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout1&nbsp;=&nbsp;lv_cout1&nbsp;*&nbsp;100&nbsp;/&nbsp;lv_cout9.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout2&nbsp;=&nbsp;lv_cout2&nbsp;*&nbsp;100&nbsp;/&nbsp;lv_cout9.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout3&nbsp;=&nbsp;lv_cout3&nbsp;*&nbsp;100&nbsp;/&nbsp;lv_cout9.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout4&nbsp;=&nbsp;lv_cout4&nbsp;*&nbsp;100&nbsp;/&nbsp;lv_cout9.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout5&nbsp;=&nbsp;lv_cout5&nbsp;*&nbsp;100&nbsp;/&nbsp;lv_cout9.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout6&nbsp;=&nbsp;lv_cout6&nbsp;*&nbsp;100&nbsp;/&nbsp;lv_cout9.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout7&nbsp;=&nbsp;lv_cout7&nbsp;*&nbsp;100&nbsp;/&nbsp;lv_cout9.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout8&nbsp;=&nbsp;lv_cout8&nbsp;*&nbsp;100&nbsp;/&nbsp;lv_cout9.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;INTO&nbsp;gs_Datadisp1&nbsp;WITH&nbsp;KEY&nbsp;entpr&nbsp;=&nbsp;'신세계&nbsp;백화점'&nbsp;fdate&nbsp;=&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratio&nbsp;=&nbsp;lv_cout1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;get_item_Data&nbsp;USING:&nbsp;'신세계&nbsp;백화점'&nbsp;'CP0001'&nbsp;lv_cout1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'신세계&nbsp;백화점'&nbsp;'CP0002'&nbsp;lv_cout1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'신세계&nbsp;백화점'&nbsp;'CP0003'&nbsp;lv_cout1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'신세계&nbsp;백화점'&nbsp;'CP0004'&nbsp;lv_cout1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'신세계&nbsp;백화점'&nbsp;'CP0005'&nbsp;lv_cout1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'신세계&nbsp;백화점'&nbsp;'CP0006'&nbsp;lv_cout1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'신세계&nbsp;백화점'&nbsp;'CP0007'&nbsp;lv_cout1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'신세계&nbsp;백화점'&nbsp;'CP0008'&nbsp;lv_cout1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;INTO&nbsp;gs_Datadisp1&nbsp;WITH&nbsp;KEY&nbsp;entpr&nbsp;=&nbsp;'롯데&nbsp;백화점'&nbsp;fdate&nbsp;=&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratio&nbsp;=&nbsp;lv_cout2.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;get_item_Data&nbsp;USING:&nbsp;'롯데&nbsp;백화점'&nbsp;'CP0001'&nbsp;lv_cout2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데&nbsp;백화점'&nbsp;'CP0002'&nbsp;lv_cout2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데&nbsp;백화점'&nbsp;'CP0003'&nbsp;lv_cout2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데&nbsp;백화점'&nbsp;'CP0004'&nbsp;lv_cout2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데&nbsp;백화점'&nbsp;'CP0005'&nbsp;lv_cout2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데&nbsp;백화점'&nbsp;'CP0006'&nbsp;lv_cout2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데&nbsp;백화점'&nbsp;'CP0007'&nbsp;lv_cout2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데&nbsp;백화점'&nbsp;'CP0008'&nbsp;lv_cout2.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;INTO&nbsp;gs_Datadisp1&nbsp;WITH&nbsp;KEY&nbsp;entpr&nbsp;=&nbsp;'현대&nbsp;백화점'&nbsp;fdate&nbsp;=&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratio&nbsp;=&nbsp;lv_cout3.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;get_item_Data&nbsp;USING:&nbsp;'현대&nbsp;백화점'&nbsp;'CP0001'&nbsp;&nbsp;lv_cout3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'현대&nbsp;백화점'&nbsp;'CP0002'&nbsp;&nbsp;lv_cout3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'현대&nbsp;백화점'&nbsp;'CP0003'&nbsp;&nbsp;lv_cout3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'현대&nbsp;백화점'&nbsp;'CP0004'&nbsp;&nbsp;lv_cout3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'현대&nbsp;백화점'&nbsp;'CP0005'&nbsp;&nbsp;lv_cout3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'현대&nbsp;백화점'&nbsp;'CP0006'&nbsp;&nbsp;lv_cout3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'현대&nbsp;백화점'&nbsp;'CP0007'&nbsp;&nbsp;lv_cout3,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'현대&nbsp;백화점'&nbsp;'CP0008'&nbsp;&nbsp;lv_cout3.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;INTO&nbsp;gs_Datadisp1&nbsp;WITH&nbsp;KEY&nbsp;entpr&nbsp;=&nbsp;'코스트코'&nbsp;fdate&nbsp;=&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratio&nbsp;=&nbsp;lv_cout4.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;get_item_Data&nbsp;USING:&nbsp;'코스트코'&nbsp;'CP0001'&nbsp;&nbsp;lv_cout4,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'코스트코'&nbsp;'CP0002'&nbsp;&nbsp;lv_cout4,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'코스트코'&nbsp;'CP0003'&nbsp;&nbsp;lv_cout4,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'코스트코'&nbsp;'CP0004'&nbsp;&nbsp;lv_cout4,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'코스트코'&nbsp;'CP0005'&nbsp;&nbsp;lv_cout4,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'코스트코'&nbsp;'CP0006'&nbsp;&nbsp;lv_cout4,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'코스트코'&nbsp;'CP0007'&nbsp;&nbsp;lv_cout4,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'코스트코'&nbsp;'CP0008'&nbsp;&nbsp;lv_cout4.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;INTO&nbsp;gs_Datadisp1&nbsp;WITH&nbsp;KEY&nbsp;entpr&nbsp;=&nbsp;'이마트&nbsp;트레이더스'&nbsp;fdate&nbsp;=&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratio&nbsp;=&nbsp;lv_cout5.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;get_item_Data&nbsp;USING:&nbsp;'이마트&nbsp;트레이더스'&nbsp;'CP0001'&nbsp;&nbsp;lv_cout5,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트&nbsp;트레이더스'&nbsp;'CP0002'&nbsp;&nbsp;lv_cout5,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트&nbsp;트레이더스'&nbsp;'CP0003'&nbsp;&nbsp;lv_cout5,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트&nbsp;트레이더스'&nbsp;'CP0004'&nbsp;&nbsp;lv_cout5,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트&nbsp;트레이더스'&nbsp;'CP0005'&nbsp;&nbsp;lv_cout5,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트&nbsp;트레이더스'&nbsp;'CP0006'&nbsp;&nbsp;lv_cout5,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트&nbsp;트레이더스'&nbsp;'CP0007'&nbsp;&nbsp;lv_cout5,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트&nbsp;트레이더스'&nbsp;'CP0008'&nbsp;&nbsp;lv_cout5.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;INTO&nbsp;gs_Datadisp1&nbsp;WITH&nbsp;KEY&nbsp;entpr&nbsp;=&nbsp;'이마트'&nbsp;fdate&nbsp;=&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratio&nbsp;=&nbsp;lv_cout6.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;get_item_Data&nbsp;USING:&nbsp;'이마트'&nbsp;'CP0001'&nbsp;lv_cout6,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트'&nbsp;'CP0002'&nbsp;lv_cout6,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트'&nbsp;'CP0003'&nbsp;lv_cout6,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트'&nbsp;'CP0004'&nbsp;lv_cout6,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트'&nbsp;'CP0005'&nbsp;lv_cout6,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트'&nbsp;'CP0006'&nbsp;lv_cout6,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트'&nbsp;'CP0007'&nbsp;lv_cout6,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'이마트'&nbsp;'CP0008'&nbsp;lv_cout6.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;INTO&nbsp;gs_Datadisp1&nbsp;WITH&nbsp;KEY&nbsp;entpr&nbsp;=&nbsp;'롯데마트'&nbsp;fdate&nbsp;=&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratio&nbsp;=&nbsp;lv_cout7.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;get_item_Data&nbsp;USING:&nbsp;&nbsp;'롯데마트'&nbsp;'CP0001'&nbsp;&nbsp;lv_cout7,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데마트'&nbsp;'CP0002'&nbsp;lv_cout7,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데마트'&nbsp;'CP0003'&nbsp;lv_cout7,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데마트'&nbsp;'CP0004'&nbsp;lv_cout7,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데마트'&nbsp;'CP0005'&nbsp;lv_cout7,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데마트'&nbsp;'CP0006'&nbsp;lv_cout7,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데마트'&nbsp;'CP0007'&nbsp;lv_cout7,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'롯데마트'&nbsp;'CP0008'&nbsp;lv_cout7.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;INTO&nbsp;gs_Datadisp1&nbsp;WITH&nbsp;KEY&nbsp;entpr&nbsp;=&nbsp;'홈플러스'&nbsp;fdate&nbsp;=&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratio&nbsp;=&nbsp;lv_cout8.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;get_item_Data&nbsp;USING:&nbsp;'홈플러스'&nbsp;'CP0001'&nbsp;lv_cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'홈플러스'&nbsp;'CP0002'&nbsp;lv_cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'홈플러스'&nbsp;'CP0003'&nbsp;lv_cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'홈플러스'&nbsp;'CP0004'&nbsp;lv_cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'홈플러스'&nbsp;'CP0005'&nbsp;lv_cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'홈플러스'&nbsp;'CP0006'&nbsp;lv_cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'홈플러스'&nbsp;'CP0007'&nbsp;lv_cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'홈플러스'&nbsp;'CP0008'&nbsp;lv_cout8.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLEAR:&nbsp;lv_cout1,&nbsp;lv_cout2,&nbsp;lv_cout3,&nbsp;lv_cout4,&nbsp;lv_cout5,&nbsp;lv_cout6,&nbsp;lv_cout7,&nbsp;lv_cout8,&nbsp;lv_cout9.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_check&nbsp;=&nbsp;gs_data2-saleym.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lv_vend&nbsp;=&nbsp;gs_data2-vendorc.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lv_toint&nbsp;=&nbsp;lv_vend.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;lv_toint&nbsp;&gt;=&nbsp;8&nbsp;AND&nbsp;lv_toint&nbsp;&lt;=&nbsp;14.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-entpr&nbsp;=&nbsp;'신세계&nbsp;백화점'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-entpr&nbsp;=&nbsp;'신세계&nbsp;백화점'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout1&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;proDcd.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_toint&nbsp;&gt;=&nbsp;15&nbsp;AND&nbsp;lv_toint&nbsp;&lt;=&nbsp;21.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-entpr&nbsp;=&nbsp;'롯데&nbsp;백화점'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-entpr&nbsp;=&nbsp;'롯데&nbsp;백화점'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout2&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;proDcd.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_toint&nbsp;&gt;=&nbsp;22&nbsp;AND&nbsp;lv_toint&nbsp;&lt;=&nbsp;26.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-entpr&nbsp;=&nbsp;'현대&nbsp;백화점'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-entpr&nbsp;=&nbsp;'현대&nbsp;백화점'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout3&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;proDcd.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_toint&nbsp;&gt;=&nbsp;27&nbsp;AND&nbsp;lv_toint&nbsp;&lt;=&nbsp;32.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-entpr&nbsp;=&nbsp;'코스트코'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-entpr&nbsp;=&nbsp;'코스트코'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout4&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;proDcd.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_toint&nbsp;&gt;=&nbsp;33&nbsp;AND&nbsp;lv_toint&nbsp;&lt;=&nbsp;38.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-entpr&nbsp;=&nbsp;'이마트&nbsp;트레이더스'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-entpr&nbsp;=&nbsp;'이마트&nbsp;트레이더스'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout5&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;proDcd.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_toint&nbsp;&gt;=&nbsp;39&nbsp;AND&nbsp;lv_toint&nbsp;&lt;=&nbsp;45.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-entpr&nbsp;=&nbsp;'이마트'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-entpr&nbsp;=&nbsp;'이마트'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout6&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;proDcd.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_toint&nbsp;&gt;=&nbsp;46&nbsp;AND&nbsp;lv_toint&nbsp;&lt;=&nbsp;52.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-entpr&nbsp;=&nbsp;'롯데마트'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-entpr&nbsp;=&nbsp;'롯데마트'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout7&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;proDcd.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_toint&nbsp;&gt;=&nbsp;53&nbsp;AND&nbsp;lv_toint&nbsp;&lt;=&nbsp;59.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-entpr&nbsp;=&nbsp;'홈플러스'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-entpr&nbsp;=&nbsp;'홈플러스'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cout8&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;proDcd.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CONCATENATE&nbsp;gs_data2-saleym&nbsp;'01'&nbsp;INTO&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-fdate&nbsp;=&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;APPEND&nbsp;gs_datadisp1&nbsp;TO&nbsp;gt_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;APPEND&nbsp;gs_datadisp2&nbsp;TO&nbsp;gt_datadisp2.<br />
+<br />
+&nbsp;&nbsp;ENDLOOP.<br />
+<br />
+&nbsp;&nbsp;SORT&nbsp;gt_datadisp1&nbsp;BY&nbsp;entpr&nbsp;fdate.<br />
+&nbsp;&nbsp;DELETE&nbsp;ADJACENT&nbsp;DUPLICATES&nbsp;FROM&nbsp;gt_datadisp1&nbsp;COMPARING&nbsp;entpr&nbsp;fdate.<br />
+<br />
+&nbsp;&nbsp;"이사이에서&nbsp;값을&nbsp;처리해&nbsp;줘야됨&nbsp;&lt;찡끗&gt;<br />
+&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_datadisp2&nbsp;INTO&nbsp;gs_datadisp2.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;check_prodcd<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USING&nbsp;gs_datadisp2-prodcd<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHANGING&nbsp;lv_2cout1&nbsp;lv_2cout2&nbsp;lv_2cout3&nbsp;lv_2cout4&nbsp;lv_2cout5&nbsp;lv_2cout6&nbsp;lv_2cout7&nbsp;lv_2cout8.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lv_date&nbsp;=&nbsp;gs_datadisp2-fdate.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;AT&nbsp;END&nbsp;OF&nbsp;entpr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;set_per_cout&nbsp;CHANGING&nbsp;lv_2cout1&nbsp;lv_2cout2&nbsp;lv_2cout3&nbsp;lv_2cout4&nbsp;lv_2cout5&nbsp;lv_2cout6&nbsp;lv_2cout7&nbsp;lv_2cout8&nbsp;lv_2cout9.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-fdate&nbsp;=&nbsp;lv_date.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;in_disp2_cout&nbsp;USING:&nbsp;'CP0001'&nbsp;CHANGING&nbsp;lv_2cout1&nbsp;lv_2cout2&nbsp;lv_2cout3&nbsp;lv_2cout4&nbsp;lv_2cout5&nbsp;lv_2cout6&nbsp;lv_2cout7&nbsp;lv_2cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0002'&nbsp;CHANGING&nbsp;lv_2cout1&nbsp;lv_2cout2&nbsp;lv_2cout3&nbsp;lv_2cout4&nbsp;lv_2cout5&nbsp;lv_2cout6&nbsp;lv_2cout7&nbsp;lv_2cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0003'&nbsp;CHANGING&nbsp;lv_2cout1&nbsp;lv_2cout2&nbsp;lv_2cout3&nbsp;lv_2cout4&nbsp;lv_2cout5&nbsp;lv_2cout6&nbsp;lv_2cout7&nbsp;lv_2cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0004'&nbsp;CHANGING&nbsp;lv_2cout1&nbsp;lv_2cout2&nbsp;lv_2cout3&nbsp;lv_2cout4&nbsp;lv_2cout5&nbsp;lv_2cout6&nbsp;lv_2cout7&nbsp;lv_2cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0005'&nbsp;CHANGING&nbsp;lv_2cout1&nbsp;lv_2cout2&nbsp;lv_2cout3&nbsp;lv_2cout4&nbsp;lv_2cout5&nbsp;lv_2cout6&nbsp;lv_2cout7&nbsp;lv_2cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0006'&nbsp;CHANGING&nbsp;lv_2cout1&nbsp;lv_2cout2&nbsp;lv_2cout3&nbsp;lv_2cout4&nbsp;lv_2cout5&nbsp;lv_2cout6&nbsp;lv_2cout7&nbsp;lv_2cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0007'&nbsp;CHANGING&nbsp;lv_2cout1&nbsp;lv_2cout2&nbsp;lv_2cout3&nbsp;lv_2cout4&nbsp;lv_2cout5&nbsp;lv_2cout6&nbsp;lv_2cout7&nbsp;lv_2cout8,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0008'&nbsp;CHANGING&nbsp;lv_2cout1&nbsp;lv_2cout2&nbsp;lv_2cout3&nbsp;lv_2cout4&nbsp;lv_2cout5&nbsp;lv_2cout6&nbsp;lv_2cout7&nbsp;lv_2cout8.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLEAR:&nbsp;lv_2cout1,&nbsp;lv_2cout2,&nbsp;lv_2cout3,&nbsp;lv_2cout4,&nbsp;lv_2cout5,&nbsp;lv_2cout6,&nbsp;lv_2cout7,&nbsp;lv_2cout8,&nbsp;lv_2cout9.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDAT.<br />
+&nbsp;&nbsp;ENDLOOP.<br />
+<br />
+&nbsp;&nbsp;SORT&nbsp;gt_datadisp2&nbsp;BY&nbsp;entpr&nbsp;DESCENDING&nbsp;fdate&nbsp;DESCENDING&nbsp;proDcd&nbsp;DESCENDING&nbsp;proRT&nbsp;DESCENDING.<br />
+&nbsp;&nbsp;DELETE&nbsp;ADJACENT&nbsp;DUPLICATES&nbsp;FROM&nbsp;gt_datadisp2&nbsp;COMPARING&nbsp;entpr&nbsp;fdate&nbsp;proDcd.<br />
+<br />
+&nbsp;&nbsp;lt_datadisp1&nbsp;=&nbsp;gt_datadisp1.<br />
+<br />
+&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_datadisp1&nbsp;INTO&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLEAR&nbsp;lv_amount.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clear&nbsp;lv_change.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;gs_datadisp1-fdate&nbsp;=&nbsp;'20220901'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;lt_datadisp1&nbsp;INTO&nbsp;ls_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;ls_datadisp1-entpr&nbsp;=&nbsp;gs_datadisp1-entpr&nbsp;AND&nbsp;ls_datadisp1-fdate&nbsp;=&nbsp;'20220601'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_amount&nbsp;+=&nbsp;ls_datadisp1-ratio&nbsp;*&nbsp;20&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_change&nbsp;-=&nbsp;ls_datadisp1-ratio.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;ls_datadisp1-entpr&nbsp;=&nbsp;gs_datadisp1-entpr&nbsp;AND&nbsp;ls_datadisp1-fdate&nbsp;=&nbsp;'20220701'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_amount&nbsp;+=&nbsp;ls_datadisp1-ratio&nbsp;*&nbsp;30&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;ls_datadisp1-entpr&nbsp;=&nbsp;gs_datadisp1-entpr&nbsp;AND&nbsp;ls_datadisp1-fdate&nbsp;=&nbsp;'20220801'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_amount&nbsp;+=&nbsp;ls_datadisp1-ratio&nbsp;*&nbsp;50&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_change&nbsp;+=&nbsp;ls_datadisp1-ratio.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;lv_amount&nbsp;&gt;&nbsp;gs_datadisp1-ratio.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-chang&nbsp;=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratch&nbsp;=&nbsp;LV_change.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_amount&nbsp;=&nbsp;gs_datadisp1-ratio.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-chang&nbsp;=&nbsp;2.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratch&nbsp;=&nbsp;LV_change.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_amount&nbsp;&lt;&nbsp;gs_datadisp1-ratio.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-chang&nbsp;=&nbsp;3.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratch&nbsp;=&nbsp;LV_change.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;gs_datadisp1-fdate&nbsp;=&nbsp;'20221001'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;lt_datadisp1&nbsp;INTO&nbsp;ls_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;ls_datadisp1-entpr&nbsp;=&nbsp;gs_datadisp1-entpr&nbsp;AND&nbsp;ls_datadisp1-fdate&nbsp;=&nbsp;'20220701'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_amount&nbsp;+=&nbsp;ls_datadisp1-ratio&nbsp;*&nbsp;20&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_change&nbsp;-=&nbsp;ls_datadisp1-ratio.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;ls_datadisp1-entpr&nbsp;=&nbsp;gs_datadisp1-entpr&nbsp;AND&nbsp;ls_datadisp1-fdate&nbsp;=&nbsp;'20220801'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_amount&nbsp;+=&nbsp;ls_datadisp1-ratio&nbsp;*&nbsp;30&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;ls_datadisp1-entpr&nbsp;=&nbsp;gs_datadisp1-entpr&nbsp;AND&nbsp;ls_datadisp1-fdate&nbsp;=&nbsp;'20220901'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_amount&nbsp;+=&nbsp;ls_datadisp1-ratio&nbsp;*&nbsp;50&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_change&nbsp;+=&nbsp;ls_datadisp1-ratio.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;lv_amount&nbsp;&gt;&nbsp;gs_datadisp1-ratio.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-chang&nbsp;=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratch&nbsp;=&nbsp;LV_change.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_amount&nbsp;=&nbsp;gs_datadisp1-ratio.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-chang&nbsp;=&nbsp;2.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratch&nbsp;=&nbsp;LV_change.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_amount&nbsp;&lt;&nbsp;gs_datadisp1-ratio.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-chang&nbsp;=&nbsp;3.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp1-ratch&nbsp;=&nbsp;LV_change.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp1&nbsp;FROM&nbsp;gs_datadisp1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;ENDLOOP.<br />
+<br />
+&nbsp;&nbsp;MODIFY&nbsp;ztc2sd2010&nbsp;FROM&nbsp;TABLE&nbsp;gt_datadisp1.<br />
+&nbsp;&nbsp;MODIFY&nbsp;ztc2sd2011&nbsp;FROM&nbsp;TABLE&nbsp;gt_datadisp2.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;cal_data2<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM cal_data2 .<br />
+<br />
+   </div>
+   <div class="codeComment">
+*SELECT&nbsp;*<br />
+*&nbsp;&nbsp;FROM&nbsp;ZTC2MD2006&nbsp;AS&nbsp;A<br />
+*&nbsp;&nbsp;INNER&nbsp;JOIN&nbsp;&nbsp;ztc2sd2007&nbsp;AS&nbsp;B<br />
+*&nbsp;&nbsp;ON&nbsp;A~MATRC&nbsp;=&nbsp;B~PRODCD<br />
+*&nbsp;&nbsp;INNER&nbsp;JOIN&nbsp;ztc2sd2002&nbsp;AS&nbsp;C<br />
+*&nbsp;&nbsp;ON&nbsp;B~PRODCD&nbsp;=&nbsp;C~PRODCD<br />
+*&nbsp;&nbsp;INTO&nbsp;CORRESPONDING&nbsp;FIELDS&nbsp;OF&nbsp;TABLE&nbsp;GT_DATA3.<br />
+<br />
+<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;SELECT&nbsp;c~saleym&nbsp;AS&nbsp;fdate&nbsp;b~prodcd&nbsp;AVG(&nbsp;sdplqty&nbsp;)&nbsp;AS&nbsp;howpl&nbsp;SUM(&nbsp;fixedqty&nbsp;)&nbsp;AS&nbsp;howsl<br />
+&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;ztc2sd2001&nbsp;AS&nbsp;a<br />
+&nbsp;&nbsp;&nbsp;&nbsp;INNER&nbsp;JOIN&nbsp;ztc2sd2002&nbsp;AS&nbsp;b<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;a~sdplno&nbsp;=&nbsp;b~sdplno<br />
+&nbsp;&nbsp;&nbsp;&nbsp;INNER&nbsp;JOIN&nbsp;ztc2sd2007&nbsp;AS&nbsp;c<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;a~plnym&nbsp;=&nbsp;c~saleym<br />
+&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;b~prodcd&nbsp;=&nbsp;c~prodcd<br />
+&nbsp;&nbsp;&nbsp;&nbsp;INTO&nbsp;CORRESPONDING&nbsp;FIELDS&nbsp;OF&nbsp;TABLE&nbsp;gt_dataplan<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GROUP&nbsp;BY&nbsp;c~saleym&nbsp;b~prodcd<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;order&nbsp;by&nbsp;c~SALEYM&nbsp;ASCENDING&nbsp;b~prodcd&nbsp;ASCENDING.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;ORDER&nbsp;BY&nbsp;b~prodcd&nbsp;ASCENDING&nbsp;c~saleym&nbsp;ASCENDING&nbsp;.<br />
+<br />
+<br />
+&nbsp;&nbsp;PERFORM&nbsp;set_Avg&nbsp;USING:&nbsp;'CP0001'&nbsp;'202209',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0002'&nbsp;'202209',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0003'&nbsp;'202209',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0004'&nbsp;'202209',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0005'&nbsp;'202209',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0006'&nbsp;'202209',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0007'&nbsp;'202209',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0008'&nbsp;'202209'.<br />
+&nbsp;&nbsp;PERFORM&nbsp;set_Avg1&nbsp;USING:&nbsp;'CP0001'&nbsp;'202210',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0002'&nbsp;'202210',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0003'&nbsp;'202210',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0004'&nbsp;'202210',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0005'&nbsp;'202210',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0006'&nbsp;'202210',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0007'&nbsp;'202210',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'CP0008'&nbsp;'202210'.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;sort&nbsp;gt_dataplan&nbsp;by&nbsp;fdate&nbsp;ASCENDING&nbsp;upsel&nbsp;DESCENDING.<br />
+<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;MODIFY&nbsp;ztc2sd2012&nbsp;FROM&nbsp;TABLE&nbsp;gt_dataplan.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;CAL_DATA3<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM cal_data3 .<br />
+<br />
+<br />
+<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;proDcd<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM proDcd .<br />
+&nbsp;&nbsp;IF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_data2-proDcd&nbsp;=&nbsp;'CP0001'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-proDcd&nbsp;=&nbsp;'CP0001'.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;gs_data2-proDcd&nbsp;=&nbsp;'CP0002'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GS_DATAdisp2-proDcd&nbsp;=&nbsp;'CP0002'.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;gs_data2-proDcd&nbsp;=&nbsp;'CP0003'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GS_DATAdisp2-proDcd&nbsp;=&nbsp;'CP0003'.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;gs_data2-proDcd&nbsp;=&nbsp;'CP0004'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GS_DATAdisp2-proDcd&nbsp;=&nbsp;'CP0004'.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;gs_data2-proDcd&nbsp;=&nbsp;'CP0005'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GS_DATAdisp2-proDcd&nbsp;=&nbsp;'CP0005'.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;gs_data2-proDcd&nbsp;=&nbsp;'CP0006'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GS_DATAdisp2-proDcd&nbsp;=&nbsp;'CP0006'.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;gs_data2-proDcd&nbsp;=&nbsp;'CP0007'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GS_DATAdisp2-proDcd&nbsp;=&nbsp;'CP0007'.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;gs_data2-proDcd&nbsp;=&nbsp;'CP0008'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GS_DATAdisp2-proDcd&nbsp;=&nbsp;'CP0008'.<br />
+&nbsp;&nbsp;ENDIF.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;check_prodcd<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM check_prodcd USING l_prodcd CHANGING l_2cout1 l_2cout2 l_2cout3 l_2cout4 l_2cout5 l_2cout6 l_2cout7 l_2cout8.<br />
+&nbsp;&nbsp;IF&nbsp;l_prodcd&nbsp;=&nbsp;'CP0001'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;l_2cout1&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;l_prodcd&nbsp;=&nbsp;'CP0002'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;l_2cout2&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;l_prodcd&nbsp;=&nbsp;'CP0003'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;l_2cout3&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;l_prodcd&nbsp;=&nbsp;'CP0004'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;l_2cout4&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;l_prodcd&nbsp;=&nbsp;'CP0005'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;l_2cout5&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;l_prodcd&nbsp;=&nbsp;'CP0006'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;l_2cout6&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;l_prodcd&nbsp;=&nbsp;'CP0007'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;l_2cout7&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;l_prodcd&nbsp;=&nbsp;'CP0008'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;l_2cout8&nbsp;+=&nbsp;1.<br />
+&nbsp;&nbsp;ENDIF.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;IN_DISP2_COUT<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;&nbsp;GS_DATADISP2_PRODCD<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;&nbsp;GS_DATADISP2_FDATE<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;&nbsp;P_<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM in_disp2_cout  USING p_prodcd CHANGING l_2cout1 l_2cout2 l_2cout3 l_2cout4 l_2cout5 l_2cout6 l_2cout7 l_2cout8.<br />
+&nbsp;&nbsp;gs_datadisp2-prodcd&nbsp;=&nbsp;p_prodcd.<br />
+&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_datadisp2&nbsp;INTO&nbsp;gs_Datadisp2&nbsp;WITH&nbsp;KEY&nbsp;entpr&nbsp;=&nbsp;gs_datadisp2-entpr&nbsp;fdate&nbsp;=&nbsp;gs_datadisp2-fdate&nbsp;proDcd&nbsp;=&nbsp;p_prodcd.<br />
+&nbsp;&nbsp;IF&nbsp;p_prodcd&nbsp;=&nbsp;'CP0001'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-prort&nbsp;=&nbsp;l_2cout1.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;P_proDcd&nbsp;&nbsp;&nbsp;=&nbsp;'CP0002'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-prort&nbsp;=&nbsp;l_2cout2.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;P_proDcd&nbsp;&nbsp;&nbsp;=&nbsp;'CP0003'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-prort&nbsp;=&nbsp;l_2cout3.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;P_proDcd&nbsp;&nbsp;&nbsp;=&nbsp;'CP0004'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-prort&nbsp;=&nbsp;l_2cout4.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;P_proDcd&nbsp;&nbsp;&nbsp;=&nbsp;'CP0005'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-prort&nbsp;=&nbsp;l_2cout5.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;P_proDcd&nbsp;&nbsp;&nbsp;=&nbsp;'CP0006'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-prort&nbsp;=&nbsp;l_2cout6.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;P_proDcd&nbsp;&nbsp;&nbsp;=&nbsp;'CP0007'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-prort&nbsp;=&nbsp;l_2cout7.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;P_proDcd&nbsp;&nbsp;&nbsp;=&nbsp;'CP0008'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_datadisp2-prort&nbsp;=&nbsp;l_2cout8.<br />
+&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp2&nbsp;FROM&nbsp;gs_datadisp2.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;SET_PER_COUT<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--&nbsp;LV_2COUT1<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--&nbsp;LV_2COUT2<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--&nbsp;LV_2COUT3<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--&nbsp;LV_2COUT4<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--&nbsp;LV_2COUT5<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--&nbsp;LV_2COUT6<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--&nbsp;LV_2COUT7<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--&nbsp;LV_2COUT8<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--&nbsp;LV_2COUT9<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM set_per_cout  CHANGING p_2cout1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_2cout2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_2cout3<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_2cout4<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_2cout5<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_2cout6<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_2cout7<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_2cout8<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_2cout9.<br />
+<br />
+&nbsp;&nbsp;p_2cout9&nbsp;=&nbsp;P_2cout1&nbsp;+&nbsp;P_2cout2&nbsp;+&nbsp;P_2cout3&nbsp;+&nbsp;P_2cout4&nbsp;+&nbsp;P_2cout5&nbsp;+&nbsp;P_2cout6&nbsp;+&nbsp;P_2cout7&nbsp;+&nbsp;P_2cout8.<br />
+&nbsp;&nbsp;P_2cout1&nbsp;=&nbsp;P_2cout1&nbsp;*&nbsp;100&nbsp;/&nbsp;p_2cout9.<br />
+&nbsp;&nbsp;P_2cout2&nbsp;=&nbsp;P_2cout2&nbsp;*&nbsp;100&nbsp;/&nbsp;p_2cout9.<br />
+&nbsp;&nbsp;P_2cout3&nbsp;=&nbsp;P_2cout3&nbsp;*&nbsp;100&nbsp;/&nbsp;p_2cout9.<br />
+&nbsp;&nbsp;P_2cout4&nbsp;=&nbsp;P_2cout4&nbsp;*&nbsp;100&nbsp;/&nbsp;p_2cout9.<br />
+&nbsp;&nbsp;P_2cout5&nbsp;=&nbsp;P_2cout5&nbsp;*&nbsp;100&nbsp;/&nbsp;p_2cout9.<br />
+&nbsp;&nbsp;P_2cout6&nbsp;=&nbsp;P_2cout6&nbsp;*&nbsp;100&nbsp;/&nbsp;p_2cout9.<br />
+&nbsp;&nbsp;P_2cout7&nbsp;=&nbsp;P_2cout7&nbsp;*&nbsp;100&nbsp;/&nbsp;p_2cout9.<br />
+&nbsp;&nbsp;P_2cout8&nbsp;=&nbsp;P_2cout8&nbsp;*&nbsp;100&nbsp;/&nbsp;p_2cout9.<br />
+<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;get_item_Data<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;&nbsp;LV_CNT8<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM get_item_Data  USING p_entpr p_prodcd l_cnt.<br />
+&nbsp;&nbsp;gs_datadisp2-entpr&nbsp;=&nbsp;p_entpr.<br />
+&nbsp;&nbsp;gs_datadisp2-fdate&nbsp;=&nbsp;gs_datadisp1-fdate.<br />
+&nbsp;&nbsp;gs_datadisp2-prodcd&nbsp;=&nbsp;p_prodcd.<br />
+&nbsp;&nbsp;gs_datadisp2-ratio&nbsp;=&nbsp;l_cnt.<br />
+<br />
+&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_datadisp2&nbsp;FROM&nbsp;gs_datadisp2.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;set_Avg<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;&nbsp;P_<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM set_Avg  USING  p_prodcd p_fdate.<br />
+&nbsp;&nbsp;DATA:&nbsp;ls_dataplan&nbsp;LIKE&nbsp;gs_dataPLAN,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt_dataplan&nbsp;LIKE&nbsp;TABLE&nbsp;OF&nbsp;ls_dataplan.<br />
+&nbsp;&nbsp;CLEAR:&nbsp;gv_samount,&nbsp;Gv_PAMOUNT.<br />
+&nbsp;&nbsp;MOVE-CORRESPONDING&nbsp;gt_dataPLAN&nbsp;TO&nbsp;lt_dataplan.<br />
+&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_dataplan&nbsp;INTO&nbsp;gs_dataplan&nbsp;WITH&nbsp;KEY&nbsp;proDcd&nbsp;=&nbsp;p_prodcd&nbsp;fdate&nbsp;=&nbsp;p_fdate.<br />
+&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;Lt_dataplan&nbsp;INTO&nbsp;Ls_dataPLAN.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;p_prodcd&nbsp;=&nbsp;ls_dataplan-prodcd.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;ls_dataplan-fdate&nbsp;=&nbsp;'202206'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_samount&nbsp;+=&nbsp;ls_dataplan-howsl&nbsp;*&nbsp;20&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gv_PAMOUNT&nbsp;+=&nbsp;ls_dataplan-howpl&nbsp;*&nbsp;20&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_updown2&nbsp;&nbsp;=&nbsp;ls_dataplan-howsl.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;ls_dataplan-fdate&nbsp;=&nbsp;'202207'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_samount&nbsp;+=&nbsp;ls_dataplan-howsl&nbsp;*&nbsp;30&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gv_PAMOUNT&nbsp;+=&nbsp;ls_dataplan-howpl&nbsp;*&nbsp;30&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;ls_dataplan-fdate&nbsp;=&nbsp;'202208'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_samount&nbsp;+=&nbsp;ls_dataplan-howsl&nbsp;*&nbsp;50&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gv_PAMOUNT&nbsp;+=&nbsp;ls_dataplan-howpl&nbsp;*&nbsp;50&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_updown1&nbsp;=&nbsp;ls_dataplan-howsl.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;set_amount&nbsp;USING&nbsp;ls_dataplan-howsl.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXIT.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;ENDLOOP.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;set_Avg1<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;&nbsp;P_<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM set_Avg1  USING   p_prodcd p_fdate.<br />
+&nbsp;&nbsp;DATA:&nbsp;ls_dataplan&nbsp;LIKE&nbsp;gs_dataPLAN,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lt_dataplan&nbsp;LIKE&nbsp;TABLE&nbsp;OF&nbsp;ls_dataplan.<br />
+&nbsp;&nbsp;CLEAR:&nbsp;gv_samount,&nbsp;Gv_PAMOUNT.<br />
+&nbsp;&nbsp;MOVE-CORRESPONDING&nbsp;gt_dataPLAN&nbsp;TO&nbsp;lt_dataplan.<br />
+&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_dataplan&nbsp;INTO&nbsp;gs_dataplan&nbsp;WITH&nbsp;KEY&nbsp;proDcd&nbsp;=&nbsp;p_prodcd&nbsp;fdate&nbsp;=&nbsp;p_fdate.<br />
+&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;Lt_dataplan&nbsp;INTO&nbsp;Ls_dataPLAN.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;p_prodcd&nbsp;=&nbsp;ls_dataplan-prodcd.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;ls_dataplan-fdate&nbsp;=&nbsp;'202207'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_samount&nbsp;+=&nbsp;ls_dataplan-howsl&nbsp;*&nbsp;20&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gv_PAMOUNT&nbsp;+=&nbsp;ls_dataplan-howpl&nbsp;*&nbsp;20&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_updown2&nbsp;&nbsp;=&nbsp;ls_dataplan-howsl.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;ls_dataplan-fdate&nbsp;=&nbsp;'202208'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_samount&nbsp;+=&nbsp;ls_dataplan-howsl&nbsp;*&nbsp;30&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gv_PAMOUNT&nbsp;+=&nbsp;ls_dataplan-howpl&nbsp;*&nbsp;30&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;ls_dataplan-fdate&nbsp;=&nbsp;'202209'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_samount&nbsp;+=&nbsp;ls_dataplan-howsl&nbsp;*&nbsp;50&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gv_PAMOUNT&nbsp;+=&nbsp;ls_dataplan-howpl&nbsp;*&nbsp;50&nbsp;/&nbsp;100.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_updown1&nbsp;=&nbsp;ls_dataplan-howsl.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFORM&nbsp;set_amount&nbsp;USING&nbsp;ls_dataplan-howsl.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXIT.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;ENDLOOP.<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;set_amount<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM set_amount USING l_howsl.<br />
+&nbsp;&nbsp;data:&nbsp;lv_set&nbsp;type&nbsp;C&nbsp;length&nbsp;10.<br />
+&nbsp;&nbsp;gs_dataplan-avghp&nbsp;=&nbsp;Gv_PAMOUNT.<br />
+&nbsp;&nbsp;gs_dataplan-avghs&nbsp;=&nbsp;Gv_sAMOUNT.<br />
+&nbsp;&nbsp;lv_set&nbsp;=&nbsp;(&nbsp;Gv_PAMOUNT&nbsp;-&nbsp;gv_samount&nbsp;)&nbsp;*&nbsp;100&nbsp;/&nbsp;gv_samount.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;FUNCTION&nbsp;'CLOI_PUT_SIGN_IN_FRONT'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHANGING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VALUE&nbsp;=&nbsp;lv_set.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_dataplan-diffr&nbsp;=&nbsp;lv_set.<br />
+&nbsp;&nbsp;IF&nbsp;lv_set&nbsp;&gt;&nbsp;5.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_dataplan-recom&nbsp;=&nbsp;1.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;lv_set&nbsp;&lt;=&nbsp;3&nbsp;and&nbsp;lv_set&nbsp;&gt;=&nbsp;-3.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_dataplan-recom&nbsp;=&nbsp;2.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;lv_set&nbsp;&lt;&nbsp;-3.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_dataplan-recom&nbsp;=&nbsp;3.<br />
+&nbsp;&nbsp;ENDIF.<br />
+<br />
+&nbsp;&nbsp;IF&nbsp;gs_dataplan-diffr&nbsp;&gt;&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_dataplan-howrc&nbsp;=&nbsp;gs_dataplan-avghs&nbsp;+&nbsp;(&nbsp;Gv_PAMOUNT&nbsp;-&nbsp;gv_samount&nbsp;)&nbsp;/&nbsp;2.<br />
+&nbsp;&nbsp;ELSEIF&nbsp;gs_dataplan-diffr&nbsp;&lt;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_dataplan-howrc&nbsp;=&nbsp;gs_dataplan-avghs.<br />
+&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;gs_dataPLAN-upsel&nbsp;=&nbsp;(&nbsp;gv_updown1&nbsp;-&nbsp;gv_updown2&nbsp;)&nbsp;*&nbsp;100&nbsp;/&nbsp;gv_updown1.<br />
+&nbsp;&nbsp;MODIFY&nbsp;TABLE&nbsp;gt_dataplan&nbsp;FROM&nbsp;gs_dataplan.<br />
+&nbsp;&nbsp;CLEAR:&nbsp;gv_samount,&nbsp;Gv_PAMOUNT,gs_dataplan.<br />
+ENDFORM.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2022. Sap Release 754</td>
+   </tr>
+</table>
+</body>
+</html>
