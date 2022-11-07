@@ -3,7 +3,6 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/UIComponent",
     "sap/m/MessageToast"
-
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
